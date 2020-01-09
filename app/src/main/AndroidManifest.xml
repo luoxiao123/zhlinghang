@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.king.easychat">
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许程序读取内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 允许程序访问 精确定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".app.group.NoticeActivity"></activity>
+        <activity
+            android:name=".app.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HomeAppTheme" />
+        <activity
+            android:name=".app.account.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WhiteAppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".app.account.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WhiteAppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".app.account.UpdatePwdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".app.chat.ChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".app.chat.GroupChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".app.photo.PhotoViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BlackAppTheme" />
+        <activity
+            android:name=".app.me.user.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.me.user.ChangeUserInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".app.me.about.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.friend.UserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.group.GroupProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.code.CodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.code.ScanCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.search.SearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WhiteAppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".app.group.GroupMemberActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".app.web.WebActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name=".app.service.HeartBeatService" />
+
+        <activity
+            android:name="com.king.base.baseurlmanager.BaseUrlManagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseUrlManagerTheme" />
+        <activity
+            android:name="com.zhihu.matisse.ui.MatisseActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Matisse.Zhihu" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+
+        <service android:name="com.vector.update_app.service.DownloadService"/>
+        <provider
+            android:name="com.vector.update_app.UpdateFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/new_app_file_paths"/>
+        </provider>
+
+        <meta-data
+            android:name="com.king.easychat.config.ConfigModule"
+            android:value="FrameConfigModule" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+    </application>
+
+</manifest>

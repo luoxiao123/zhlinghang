@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import
+            type="android.view.View" />
+        <variable
+            name="data"
+            type="com.king.easychat.netty.packet.resp.GroupMessageResp" />
+        <variable
+            name="curTime"
+            type="Long" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/size_10dp"
+        android:paddingBottom="@dimen/size_10dp"
+        android:paddingLeft="@dimen/size_16dp"
+        android:paddingRight="@dimen/size_16dp">
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_9"
+            android:textSize="@dimen/size_14sp"
+            android:gravity="center_horizontal"
+            bind:time="@{data.dateTime}"
+            bind:curTime="@{curTime}"
+            tools:text="11:26"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/size_40dp"
+            android:layout_height="@dimen/size_40dp"
+            tools:src="@drawable/default_avatar"
+            bind:avatar="@{data.avatar}"
+            android:layout_marginTop="@dimen/size_2dp"
+            android:layout_below="@+id/tvTime"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/line" />
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_8dp"
+            android:layout_marginRight="@dimen/size_50dp"
+            android:layout_below="@+id/tvTime"
+            android:layout_toRightOf="@+id/ivAvatar"
+            android:layout_marginLeft="@dimen/size_6dp"
+            android:textSize="@dimen/size_16sp"
+            android:textColor="@color/text_6"
+            android:text="@{data.msg}"
+            tools:text="我用双手成就你的梦想"
+            android:visibility="@{data.image ? View.GONE : View.VISIBLE}"
+            android:background="@drawable/ec_chat_bubble_left"/>
+        <ImageView
+            android:id="@+id/ivContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/size_100dp"
+            android:minHeight="@dimen/size_100dp"
+            android:maxWidth="300dp"
+            android:maxHeight="400dp"
+            android:layout_marginTop="@dimen/size_8dp"
+            android:layout_marginRight="@dimen/size_50dp"
+            android:layout_below="@+id/tvTime"
+            android:layout_toRightOf="@+id/ivAvatar"
+            android:layout_marginLeft="@dimen/size_6dp"
+            bind:imageUrl="@{data.msg}"
+            android:visibility="@{data.image ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+
+
+</layout>

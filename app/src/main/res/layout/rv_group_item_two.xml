@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="data"
+            type="com.king.easychat.bean.MessageNewBean" />
+    </data>
+
+<LinearLayout
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/size_16dp">
+
+
+    <TextView
+        android:layout_width="match_parent" android:id="@+id/article_title"
+        android:layout_height="wrap_content"
+        android:text="@{data.groupName}"
+        android:textColor="@color/text_black_88"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/summary"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent" android:maxLines="2" android:ellipsize="end"
+        android:layout_height="wrap_content"
+        android:text="@{data.content}"
+        android:textColor="@color/text_black_38"/>
+
+    <ImageView
+        android:id="@+id/cover_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        bind:avatar="@{data.avatar}"
+        android:background="#DCDCDC" />
+
+    <LinearLayout
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+
+            <ImageView
+                android:id="@+id/user_img"
+                android:scaleType="centerCrop"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_girl"/>
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black_88"
+            android:textSize="12sp"
+            android:text="@{data.zuozhe}"
+            android:layout_marginLeft="8dp"/>
+
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_eye_gray" />
+
+        <TextView
+            android:id="@+id/see_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/text_black_38"
+            android:textSize="10sp"
+            android:text="@{data.say}" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/ic_message_gray" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/comment_num"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="right"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:textColor="@color/text_black_38"-->
+<!--            android:textSize="10sp"-->
+<!--            tools:text="0" />-->
+    </LinearLayout>
+</LinearLayout>
+</layout>
