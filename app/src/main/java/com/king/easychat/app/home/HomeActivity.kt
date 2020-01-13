@@ -132,6 +132,7 @@ class HomeActivity : BaseActivity<HomeViewModel, HomeActivityBinding>() ,
                     val intent = newIntent("详情",WebActivity::class.java)
                     intent.putExtra(Constants.KEY_URL,date.url)
                     startActivity(intent)
+                    finish()
                 }
 
             }

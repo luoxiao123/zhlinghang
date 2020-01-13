@@ -17,13 +17,14 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.group.NoticeActivity"></activity>
+        <activity android:name=".app.group.YinsiActivity"></activity>
+        <activity android:name=".app.group.NoticeActivity" />
         <activity
             android:name=".app.splash.SplashActivity"
             android:screenOrientation="portrait"
@@ -114,8 +115,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
+        <service android:name="com.vector.update_app.service.DownloadService" />
 
-        <service android:name="com.vector.update_app.service.DownloadService"/>
         <provider
             android:name="com.vector.update_app.UpdateFileProvider"
             android:authorities="${applicationId}.fileProvider"
@@ -123,7 +124,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/new_app_file_paths"/>
+                android:resource="@xml/new_app_file_paths" />
         </provider>
 
         <meta-data
@@ -132,7 +133,6 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" />
-
     </application>
 
 </manifest>

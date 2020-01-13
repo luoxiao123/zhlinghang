@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">智慧领航</string>
+    <string name="app_name">领航策略</string>
 
     <string name="todo">静待更新</string>
 
@@ -144,5 +144,6 @@
     <string name="about_server"><u>EasyChatServer</u></string>
     <string name="about_java_fx"><u>EasyChatJavaFXClient</u></string>
     <string name="about_android"><u>EasyChatAndroidClient</u></string>
+    <string name="yinsixieyi">请同意隐私协议</string>
 
 </resources>

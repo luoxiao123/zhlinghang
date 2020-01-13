@@ -6,6 +6,7 @@ import com.king.base.util.StringUtils
 import com.king.easychat.R
 import com.king.easychat.app.Constants
 import com.king.easychat.app.base.BaseActivity
+import com.king.easychat.app.group.YinsiActivity
 import com.king.easychat.app.service.HeartBeatService
 import com.king.easychat.databinding.RegisterActivityBinding
 import com.king.easychat.netty.packet.resp.RegisterResp
@@ -35,6 +36,15 @@ class RegisterActivity : BaseActivity<RegisterViewModel, RegisterActivityBinding
 
 
         btnRegister.setOnClickListener(this)
+
+        tv_agreement.setOnClickListener {
+            val intent = newIntent("隐私协议",YinsiActivity::class.java)
+            startActivity(intent)
+        }
+
+        iv_check.setOnClickListener {
+            checkAgreement()
+        }
     }
 
     override fun getLayoutId(): Int {
@@ -60,6 +70,11 @@ class RegisterActivity : BaseActivity<RegisterViewModel, RegisterActivityBinding
     }
 
     fun clickRegister(){
+
+        if(!isAgree){
+            showToast(getString(R.string.yinsixieyi))
+            return
+        }
 
         if (!checkInput(etUsername, R.string.tips_username_is_empty)) {
             return
@@ -98,6 +113,23 @@ class RegisterActivity : BaseActivity<RegisterViewModel, RegisterActivityBinding
         when(v.id){
             R.id.btnRegister -> clickRegister()
             R.id.tvLogin -> onBackPressed()
+        }
+    }
+
+
+    /* 是否选中服务协议*/
+    private var isAgree = true
+
+    /**
+     * 选择服务协议
+     */
+    private fun checkAgreement() {
+        if (isAgree) {
+            isAgree = false
+            iv_check.setBackgroundResource(R.drawable.ic_check_normal)
+        } else {
+            isAgree = true
+            iv_check.setBackgroundResource(R.drawable.ic_check_active)
         }
     }
 }

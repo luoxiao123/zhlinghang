@@ -40,6 +40,8 @@ class WebActivity : BaseActivity<DataViewModel, WebActivityBinding>() {
 
         web.setDefaultHandler(DefaultHandler())
 
+        web.settings.setCacheMode(WebSettings.LOAD_NO_CACHE) //不使用缓存
+
         web.webChromeClient = object : WebChromeClient(){
 
             override fun onReceivedTitle(view: WebView?, title: String?) {
@@ -78,22 +80,22 @@ class WebActivity : BaseActivity<DataViewModel, WebActivityBinding>() {
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                 super.onReceivedError(view, request, error)
-                isError = true
-                view?.loadUrl(BLANK_URL)
-                updateProgress(0,true)
+//                isError = true
+////                view?.loadUrl(BLANK_URL)
+//                updateProgress(0,true)
             }
 
             override fun onReceivedHttpError(view: WebView?, request: WebResourceRequest?, errorResponse: WebResourceResponse?) {
                 super.onReceivedHttpError(view, request, errorResponse)
-                isError = true
-                view?.loadUrl(BLANK_URL)
-                updateProgress(0,true)
+//                isError = true
+//                view?.loadUrl(BLANK_URL)
+//                updateProgress(0,true)
             }
 
             override fun onReceivedSslError(view: WebView?, handler: SslErrorHandler, error: SslError?) {
                 super.onReceivedSslError(view, handler, error)
-                handler.cancel()
-                handler.proceed()
+//                handler.cancel()
+//                handler.proceed()
             }
 
 

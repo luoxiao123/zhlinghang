@@ -128,5 +128,46 @@
             app:layout_constraintRight_toRightOf="parent"
             style="@style/OnClick"/>
 
+
+        <RelativeLayout
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-12dp"
+                android:background="@drawable/ic_check_active"
+                android:paddingRight="5dp" />
+
+            <TextView
+                android:id="@+id/tv_agreement_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_check"
+                android:layout_toRightOf="@+id/iv_check"
+                android:gravity="center"
+                android:lines="1"
+                android:text="选择代表您已经同意"
+                android:textColor="@color/text_black_58"
+                android:textSize="@dimen/size_14sp" />
+
+            <TextView
+                android:id="@+id/tv_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_agreement_label"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="《用户服务协议》"
+                android:textColor="@color/text_theme"
+                android:textSize="@dimen/sp_14" />
+        </RelativeLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
